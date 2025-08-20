@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+
+<body>
+    <h1>This is the home route</h1>
+
+    <a href="/new">create a new todo</a>
+
+    <h3>All Todos</h3>
+
+    <ul>
+
+        <% for(let todo of todos){ %>
+            <li style="margin-bottom: 20px;">
+                <%= todo.text %>
+                    <a href="/edit/<%= todo._id %>">
+                        <button>edit</button>
+                    </a>
+
+                    <form action="/delete/<%= todo._id %>?_method=DELETE" method="POST">
+                        <button>Delete</button>
+                    </form>
+            </li>
+            <% } %>
+
+    </ul>
+</body>
+
+</html>
